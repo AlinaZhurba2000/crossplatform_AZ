@@ -13,6 +13,7 @@ namespace AZ_BackEnd.Models
 
             public ICollection<mudPump> pumps { get; set; }
 
+        
         public int getCountOfMudPumps()
         {
             return pumps.Count;

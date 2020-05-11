@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using AZ_BackEnd.Models;
 
 namespace AZ_BackEnd.Controllers
@@ -31,6 +32,7 @@ namespace AZ_BackEnd.Controllers
 
         // GET: api/mudPumps/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<mudPump>> GetmudPump(int id)
         {
             var mudPump = await _context.mudPumps.FindAsync(id);
@@ -43,7 +45,12 @@ namespace AZ_BackEnd.Controllers
             return mudPump;
         }
 
-   
+        [HttpGet("{id}/where")]
+
+        public IEnumerable<mudPump> getIsHere()
+        {
+            return _context.getIsHere();
+        }
 
 
         // PUT: api/mudPumps/5
@@ -96,6 +103,7 @@ namespace AZ_BackEnd.Controllers
 
         // DELETE: api/mudPumps/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<mudPump>> DeletemudPump(int id)
         {
             var mudPump = await _context.mudPumps.FindAsync(id);

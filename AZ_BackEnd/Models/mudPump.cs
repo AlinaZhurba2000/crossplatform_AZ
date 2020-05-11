@@ -14,7 +14,7 @@ namespace AZ_BackEnd.Models
 
         public int numberOfCylinders { get; set; }
 
-        public double power{ get; set; }
+        public double power { get; set; }
 
         public double maxPressure { get; set; }
 
@@ -24,15 +24,8 @@ namespace AZ_BackEnd.Models
 
         public bool isHere { get; set; }
 
-        //Чем больше цилиндров, тем качественнее насос, следовательно цена выше
-        public double HeiPrice()
-        {
-            if (this.numberOfCylinders > 2)
-            {
-                return this.price + this.price / this.numberOfCylinders;
-            }
-            else return this.price;
-        }
+        public IEnumerable<mudPump> mudP {get;set;}
+
 
      
 

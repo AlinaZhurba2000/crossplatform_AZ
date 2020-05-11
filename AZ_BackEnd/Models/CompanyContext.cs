@@ -11,16 +11,22 @@ namespace AZ_BackEnd.Models
         public CompanyContext(DbContextOptions<CompanyContext> options)
             : base(options)
         {
-
         }
 
         public DbSet<Company> Companies { get; set; }
-
-     
+   
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>()
                 .OwnsMany(property => property.pumps);
+        }
+        
+        public IEnumerable<Company> getRussCompanies()
+        {
+            return
+                from f in Companies
+                where f.Country == "Russia"
+                select f;
 
         }
     }

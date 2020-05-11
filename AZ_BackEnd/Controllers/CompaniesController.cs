@@ -20,6 +20,11 @@ namespace AZ_BackEnd.Controllers
             _context = context;
         }
 
+        [HttpGet("{id}/getRuss")]
+        public IEnumerable<Company> getRussCompanies()
+        {
+            return _context.getRussCompanies();
+        }
         // GET: api/Companies
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
@@ -43,9 +48,9 @@ namespace AZ_BackEnd.Controllers
         //добавила метод
         [HttpGet("{id}/countMudPumps")]
 
-        public async Task<ActionResult<int>> GetMudPumpsCountOfCompany(int ID)
+        public async Task<ActionResult<int>> GetMudPumpsCountOfCompany(int id)
         {
-            var company = await _context.Companies.FindAsync(ID);
+            var company = await _context.Companies.FindAsync(id);
             
 
             if (company==null)
