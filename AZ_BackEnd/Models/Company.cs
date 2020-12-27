@@ -12,8 +12,6 @@ namespace AZ_BackEnd.Models
             public string Country { get; set; }
 
             public ICollection<mudPump> pumps { get; set; }
-
-        
         public int getCountOfMudPumps()
         {
             return pumps.Count;

@@ -7,7 +7,6 @@ namespace AZ_BackEnd.Models
 {
     public class mudPump
     {
-        //свойство id выступает в качестве уникального идентификатора ключа в РБД
         public int id { get; set; }
 
         public string nameObject { get; set; }
@@ -25,10 +24,6 @@ namespace AZ_BackEnd.Models
         public bool isHere { get; set; }
 
         public IEnumerable<mudPump> mudP {get;set;}
-
-
-     
-
 
     }
 }
